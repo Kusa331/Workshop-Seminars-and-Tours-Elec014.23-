@@ -239,8 +239,8 @@ section p {
   box-shadow: 0 6px 24px rgba(60,64,67,0.18);
 }
 .speaker-photo {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 0.75rem;
@@ -303,19 +303,130 @@ section p {
   background-color: #4bb3e6;
 }
 
-/* Responsive */
+
+/* Dark mode toggle button */
+.dark-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1200;
+  background: #fff;
+  color: #23272f;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(60,64,67,0.10);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0;
+}
+.dark-toggle-btn:hover, .dark-toggle-btn:focus {
+  background: #61dafb;
+  color: #23272f;
+  box-shadow: 0 4px 16px rgba(60,64,67,0.18);
+}
+.app.dark .dark-toggle-btn {
+  background: #23272f;
+  color: #ffe066;
+}
+.app.dark .dark-toggle-btn:hover, .app.dark .dark-toggle-btn:focus {
+  background: #ffe066;
+  color: #23272f;
+}
+
+/* Dark mode overrides */
+.app.dark,
+body.dark {
+  background: #181c23 !important;
+}
+
+.app.dark .content,
+body.dark .content {
+  background: #23272f !important;
+}
+
+.app.dark section,
+body.dark section {
+  background: #23272f;
+  color: #f5f7fa;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.app.dark section h1,
+.app.dark section h2,
+body.dark section h1,
+body.dark section h2 {
+  color: #ffe066;
+  border-left-color: #ffe066;
+}
+
+.app.dark section p,
+body.dark section p {
+  color: #e2e8f0;
+}
+
+.app.dark .sidebar,
+body.dark .sidebar {
+  background: linear-gradient(135deg, #181c23, #23272f);
+  color: #ffe066;
+}
+
+.app.dark .sidebar h2,
+body.dark .sidebar h2 {
+  color: #ffe066;
+}
+
+.app.dark .sidebar nav ul li a,
+body.dark .sidebar nav ul li a {
+  color: #ffe066;
+}
+
+.app.dark .sidebar nav ul li a:hover,
+body.dark .sidebar nav ul li a:hover {
+  color: #61dafb;
+}
+
+.app.dark .ppt-card,
+.app.dark .seminar-card,
+body.dark .ppt-card,
+body.dark .seminar-card {
+  background: #23272f;
+  color: #ffe066;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.app.dark .ppt-caption,
+body.dark .ppt-caption {
+  color: #ffe066;
+}
+
+.app.dark .reflection-box,
+body.dark .reflection-box {
+  background: #23272f;
+  color: #ffe066;
+}
+
+/* Responsive adjustments */
 @media (max-width: 991px) {
   .sidebar {
-    width: 240px;
+    width: 220px;
+    padding: 1.5rem 1rem;
   }
   .content {
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 1.5rem 1rem 1.5rem 1rem;
   }
 }
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 260px;
+    width: 200px;
+    padding: 1rem 0.5rem;
     transform: translateX(-100%);
   }
   .app.sidebar-open .sidebar {
@@ -323,7 +434,7 @@ section p {
   }
   .content {
     margin-left: 0;
-    padding: 2rem 1.5rem;
+    padding: 1rem 0.5rem;
   }
   .hamburger {
     display: flex;
@@ -331,8 +442,8 @@ section p {
     left: 15px;
   }
   .profile-pic {
-    width: 110px;
-    height: 110px;
+    width: 80px;
+    height: 80px;
   }
   .section-photo {
     max-width: 100%;
@@ -345,121 +456,42 @@ section p {
     width: 90vw;
     height: 54vw;
     max-width: 100%;
-    max-height: 220px;
+    max-height: 180px;
+  }
+  section {
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  .reflection-flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .seminar-grid, .ppt-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .dark-toggle-btn {
+    top: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
   }
 }
 
-/* Dark mode */
-body.dark,
-html.dark,
-#root.dark,
-.app.dark {
-  background: #181a20 !important;
-}
-
-.app.dark {
-  background: #181a20 !important;
-}
-
-.app.dark .sidebar {
-  background: linear-gradient(135deg, #23272f, #181a20);
-  color: #e0e6ed;
-}
-
-.app.dark .sidebar h2 {
-  color: #61dafb;
-}
-
-.app.dark .sidebar nav ul li a {
-  color: #b6c2d1;
-}
-
-.app.dark .sidebar nav ul li a:hover {
-  color: #61dafb;
-}
-
-.app.dark .profile-pic {
-  border-color: #61dafb;
-}
-
-.app.dark .content {
-  background: #181a20;
-}
-
-.app.dark section {
-  background: #23272f;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-.app.dark section h1,
-.app.dark section h2 {
-  color: #e0e6ed;
-  border-left: 6px solid #61dafb;
-}
-
-.app.dark section p {
-  color: #b6c2d1;
-}
-
-.app.dark .seminar-card,
-.app.dark .ppt-card {
-  background: #23272f;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-}
-.app.dark .seminar-name,
-.app.dark .ppt-caption {
-  color: #61dafb;
-}
-
-.app.dark .reflection-entry {
-  background-color: #23272f;
-  color: #e0e6ed;
-}
-
-.app.dark .reflection-entry p {
-  color: #e0e6ed;
-}
-
-.app.dark .reflection-entry small {
-  color: #94a3b8;
-}
-
-.app.dark textarea {
-  background: #23272f;
-  color: #e0e6ed;
-  border-color: #444857;
-}
-
-.app.dark textarea:focus {
-  border-color: #61dafb;
-}
-
-.app.dark .add-btn {
-  background-color: #61dafb;
-  color: #23272f;
-}
-
-.app.dark .add-btn:hover {
-  background-color: #4bb3e6;
-}
-
-.app.dark .delete-btn {
-  color: #ef4444;
-}
-
-.app.dark .delete-btn:hover {
-  color: #f87171;
-}
-
-.app.dark footer {
-  background: none;
-  color: #b6c2d1;
-}
-
-.app.dark .hamburger {
-  background: rgba(36, 41, 46, 0.25);
-}
-
-.app.dark .hamburger span {
-  background-color: #61dafb;
+@media (max-width: 480px) {
+  html, body {
+    font-size: 15px;
+  }
+  .sidebar {
+    width: 100vw;
+    left: 0;
+    padding: 0.5rem 0.2rem;
+  }
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+  }
+  .ppt-photo {
+    height: 40vw;
+  }
 }
