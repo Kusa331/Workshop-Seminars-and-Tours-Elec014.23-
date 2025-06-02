@@ -12,7 +12,7 @@ import speakerIan from "./assets/Ian.jpg";
 import speakerHizon from "./assets/Hizon.jpg";
 import speakerNed from "./assets/Ned.jpg";
 import speakerCris from "./assets/Cris.jpg";
-import { useState } from "react";
+import  { useState } from "react";
 
 const navLinks = [
   { href: "#about", label: "About Me" },
