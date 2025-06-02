@@ -1,42 +1,465 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body, html, #root, .app {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  background: #f5f7fa;
+  position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  padding: 2rem 1.5rem;
+  position: fixed;
+  height: 100vh;
+  box-shadow: 3px 0 15px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.app.sidebar-open .sidebar {
+  transform: translateX(0);
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #61dafb;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.sidebar h2 {
+  font-weight: 600;
+  color: #61dafb;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  width: 100%;
+  padding-left: 0;
+}
+
+.sidebar nav ul li {
+  margin: 1.2rem 0;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.sidebar nav ul li a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.sidebar nav ul li a:hover {
+  color: #61dafb;
+}
+
+/* Hamburger button */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 36px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border: none;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  height: 5px;
+  background-color: skyblue;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: #61dafb;
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+  background-color: #61dafb;
+}
+
+/* Main content */
+.content {
+  margin-left: 0;
+  padding: 3rem 3rem 3rem 3rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+  background: #f5f7fa;
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    transform: translateX(0);
   }
-  to {
-    transform: rotate(360deg);
+  .app.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+  .content {
+    margin-left: 280px;
+  }
+  .hamburger {
+    display: none;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Sections styling */
+section {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+section h1,
+section h2 {
+  color: #0f172a;
+  font-weight: 700;
+  border-left: 6px solid #61dafb;
+  padding-left: 10px;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: 1.15rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* PPT grid for slides */
+.ppt-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.ppt-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60,64,67,0.10);
+  padding: 1rem 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 320px;
+  transition: box-shadow 0.2s;
+}
+.ppt-card:hover {
+  box-shadow: 0 6px 24px rgba(60,64,67,0.18);
+}
+.ppt-photo {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(60,64,67,0.10);
+}
+.ppt-caption {
+  font-weight: 500;
+  color: #222;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Speaker grid for seminars */
+.seminar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.seminar-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60,64,67,0.10);
+  padding: 1rem 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 170px;
+  transition: box-shadow 0.2s;
+}
+.seminar-card:hover {
+  box-shadow: 0 6px 24px rgba(60,64,67,0.18);
+}
+.speaker-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(60,64,67,0.10);
+}
+.seminar-name {
+  font-weight: 600;
+  color: #4285F4;
+  font-size: 1.08rem;
+  margin-top: 0.5rem;
+}
+
+/* Tours */
+.tour-flex {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Reflections */
+.reflection-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+.reflection-block {
+  flex: 1;
+  min-width: 260px;
+}
+.reflection-title.seminar {
+  color: #4285F4;
+  font-weight: 500;
+}
+.reflection-title.tour {
+  color: #EA4335;
+  font-weight: 500;
+}
+.reflection-box {
+  background: #f1f3f4;
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 120px;
+  color: #444;
+}
+
+/* Button */
+.add-btn {
+  background-color: #61dafb;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.add-btn:hover {
+  background-color: #4bb3e6;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .sidebar {
+    width: 240px;
+  }
+  .content {
+    padding: 2rem 2rem 2rem 2rem;
   }
 }
 
-.card {
-  padding: 2em;
+@media (max-width: 768px) {
+  .sidebar {
+    width: 260px;
+    transform: translateX(-100%);
+  }
+  .app.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+  .content {
+    margin-left: 0;
+    padding: 2rem 1.5rem;
+  }
+  .hamburger {
+    display: flex;
+    top: 15px;
+    left: 15px;
+  }
+  .profile-pic {
+    width: 110px;
+    height: 110px;
+  }
+  .section-photo {
+    max-width: 100%;
+  }
+  .ppt-card {
+    width: 98vw;
+    padding: 0.5rem 0.2rem;
+  }
+  .ppt-photo {
+    width: 90vw;
+    height: 54vw;
+    max-width: 100%;
+    max-height: 220px;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Dark mode */
+body.dark,
+html.dark,
+#root.dark,
+.app.dark {
+  background: #181a20 !important;
+}
+
+.app.dark {
+  background: #181a20 !important;
+}
+
+.app.dark .sidebar {
+  background: linear-gradient(135deg, #23272f, #181a20);
+  color: #e0e6ed;
+}
+
+.app.dark .sidebar h2 {
+  color: #61dafb;
+}
+
+.app.dark .sidebar nav ul li a {
+  color: #b6c2d1;
+}
+
+.app.dark .sidebar nav ul li a:hover {
+  color: #61dafb;
+}
+
+.app.dark .profile-pic {
+  border-color: #61dafb;
+}
+
+.app.dark .content {
+  background: #181a20;
+}
+
+.app.dark section {
+  background: #23272f;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.app.dark section h1,
+.app.dark section h2 {
+  color: #e0e6ed;
+  border-left: 6px solid #61dafb;
+}
+
+.app.dark section p {
+  color: #b6c2d1;
+}
+
+.app.dark .seminar-card,
+.app.dark .ppt-card {
+  background: #23272f;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+.app.dark .seminar-name,
+.app.dark .ppt-caption {
+  color: #61dafb;
+}
+
+.app.dark .reflection-entry {
+  background-color: #23272f;
+  color: #e0e6ed;
+}
+
+.app.dark .reflection-entry p {
+  color: #e0e6ed;
+}
+
+.app.dark .reflection-entry small {
+  color: #94a3b8;
+}
+
+.app.dark textarea {
+  background: #23272f;
+  color: #e0e6ed;
+  border-color: #444857;
+}
+
+.app.dark textarea:focus {
+  border-color: #61dafb;
+}
+
+.app.dark .add-btn {
+  background-color: #61dafb;
+  color: #23272f;
+}
+
+.app.dark .add-btn:hover {
+  background-color: #4bb3e6;
+}
+
+.app.dark .delete-btn {
+  color: #ef4444;
+}
+
+.app.dark .delete-btn:hover {
+  color: #f87171;
+}
+
+.app.dark footer {
+  background: none;
+  color: #b6c2d1;
+}
+
+.app.dark .hamburger {
+  background: rgba(36, 41, 46, 0.25);
+}
+
+.app.dark .hamburger span {
+  background-color: #61dafb;
 }
