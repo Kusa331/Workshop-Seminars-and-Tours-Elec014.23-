@@ -130,7 +130,7 @@ function App() {
 
         {/* PPT Images Section */}
         <section id="ppt">
-          <h2>Seminar</h2>
+          <h2>Seminar and Workshop</h2>
           <div className="ppt-grid">
             {pptImages.map((img, idx) => (
               <div className="ppt-card" key={idx}>
