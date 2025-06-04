@@ -12,6 +12,8 @@ import speakerIan from "./assets/Ian.jpg";
 import speakerHizon from "./assets/Hizon.jpg";
 import speakerNed from "./assets/Ned.jpg";
 import speakerCris from "./assets/Cris.jpg";
+import certificateImg from "./assets/Cert 1.jpg";
+import certificateImg2 from "./assets/Cert 2.png";
 import { useState } from "react";
 
 const navLinks = [
@@ -20,6 +22,7 @@ const navLinks = [
   { href: "#seminars", label: "Speakers" },
   { href: "#tours", label: "Tours" },
   { href: "#organization", label: "Organization" },
+  { href: "#certificate", label: "Certificate" }, // <-- Add this line
   { href: "#reflection", label: "Reflections" },
   { href: "#conclusion", label: "Conclusion" },
 ];
@@ -130,7 +133,7 @@ function App() {
 
         {/* PPT Images Section */}
         <section id="ppt">
-          <h2>Seminar and Workshop</h2>
+          <h2>Seminar</h2>
           <div className="ppt-grid">
             {pptImages.map((img, idx) => (
               <div className="ppt-card" key={idx}>
@@ -186,6 +189,45 @@ function App() {
             </p>
           </div>
         </section>
+
+
+
+        {/* Certificate Section */}
+        <section id="certificate">
+          <h2>Certificate</h2>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+            <img
+              src={certificateImg}
+              alt="Seminar Certificate"
+              style={{
+                width: "100%",
+                maxWidth: 400,
+                borderRadius: 12,
+                boxShadow: "0 2px 8px rgba(60,64,67,0.10)",
+              }}
+            />
+            <p style={{ textAlign: "center", color: "#5f6368" }}>
+              AI Agents for Beginners (Online Certificate)
+            </p>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+            <img
+              src={certificateImg2}
+              alt="Seminar Certificate"
+              style={{
+                width: "100%",
+                maxWidth: 400,
+                borderRadius: 12,
+                boxShadow: "0 2px 8px rgba(60,64,67,0.10)",
+              }}
+            />
+            <p style={{ textAlign: "center", color: "#5f6368" }}>
+              Learning CSS badge (Google Developers)
+            </p>
+          </div>
+        </section>
+
 
         {/* Reflections */}
         <section id="reflection">
