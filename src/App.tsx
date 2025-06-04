@@ -34,7 +34,7 @@ const pptImages = [
 ];
 
 const speakers = [
-  { name: "Ian Binablo", img: speakerIan },
+  { name: "Ian Benablo", img: speakerIan },
   { name: "Hizon Caja", img: speakerHizon },
   { name: "Ned Palacios", img: speakerNed },
   { name: "Cris John Manero", img: speakerCris },
