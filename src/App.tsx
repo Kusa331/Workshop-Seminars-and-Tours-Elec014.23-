@@ -12,6 +12,7 @@ import speakerIan from "./assets/Ian.jpg";
 import speakerHizon from "./assets/Hizon.jpg";
 import speakerNed from "./assets/Ned.jpg";
 import speakerCris from "./assets/Cris.jpg";
+import speakerLucas from "./assets/Lucas.jpg"
 import certificateImg from "./assets/Cert 1.jpg";
 import certificateImg2 from "./assets/Cert 2.png";
 import { useState } from "react";
@@ -41,6 +42,7 @@ const speakers = [
   { name: "Hizon Caja", img: speakerHizon },
   { name: "Ned Palacios", img: speakerNed },
   { name: "Cris John Manero", img: speakerCris },
+  { name: "Lucas Carlo Castro", img:speakerLucas},
 ];
 
 function App() {
