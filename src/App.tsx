@@ -15,6 +15,7 @@ import speakerCris from "./assets/Cris.jpg";
 import speakerLucas from "./assets/Lucas.jpg"
 import certificateImg from "./assets/Cert 1.jpg";
 import certificateImg2 from "./assets/Cert 2.png";
+import certificateImg3 from "./assets/Cert 3.jpg";
 import { useState } from "react";
 
 const navLinks = [
@@ -226,6 +227,22 @@ function App() {
             />
             <p style={{ textAlign: "center", color: "#5f6368" }}>
               Learning CSS badge (Google Developers)
+            </p>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+            <img
+              src={certificateImg3}
+              alt="Seminar Certificate"
+              style={{
+                width: "100%",
+                maxWidth: 400,
+                borderRadius: 12,
+                boxShadow: "0 2px 8px rgba(60,64,67,0.10)",
+              }}
+            />
+            <p style={{ textAlign: "center", color: "#5f6368" }}>
+               Getting Started with Microsoft Excel 
             </p>
           </div>
         </section>
