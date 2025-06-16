@@ -6,6 +6,8 @@ import introPic3 from "./assets/third.jpg";
 import introPic4 from "./assets/fourth.jpg";
 import introPic5 from "./assets/fitth.jpg";
 import introPic6 from "./assets/sixth.jpg";
+import introPic7 from "./assets/seventh.jpg";
+import introPic8 from "./assets/eight.jpg";
 import Tour1 from "./assets/Tour1.jpg";
 import orgPic from "./assets/uic ccs.jpg";
 import speakerIan from "./assets/Ian.jpg";
@@ -36,6 +38,8 @@ const pptImages = [
   { src: introPic4, caption: "" },
   { src: introPic5, caption: "" },
   { src: introPic6, caption: "" },
+  { src: introPic7, caption: "" },
+  { src: introPic8, caption: "" },
 ];
 
 const speakers = [
