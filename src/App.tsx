@@ -140,7 +140,7 @@ function App() {
 
         {/* PPT Images Section */}
         <section id="ppt">
-          <h2>Seminar</h2>
+          <h2>Seminar and Workshop</h2>
           <div className="ppt-grid">
             {pptImages.map((img, idx) => (
               <div className="ppt-card" key={idx}>
@@ -153,7 +153,7 @@ function App() {
 
         {/* Seminars (Speakers) */}
         <section id="seminars">
-          <h2>Seminar Speakers</h2>
+          <h2>Seminar and Workshop  Speakers</h2>
           <div className="seminar-grid">
             {speakers.map((speaker) => (
               <div className="seminar-card" key={speaker.name}>
